@@ -90,7 +90,7 @@ function App() {
               </div>
             </div>
 
-            <div ClassName="detalher-box">
+            <div className="detalhes-box">
 
               <div className="detalhes-item">
                 <Thermometer />
