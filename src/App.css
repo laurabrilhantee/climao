@@ -100,9 +100,14 @@ header p{
  text-align: center;
  margin-bottom: 32px;
 }
-.temperatura-valor{
+#temperatura-valor{
   font-size: 3.7em;
   font-weight: bold;
   color: #2563eb;
   margin-bottom: 8px;
+}
+.detalhes-box{
+  display: grid;
+  grid-template-columns: repeat(3.1fr);
+  gap: 16px;
 }
