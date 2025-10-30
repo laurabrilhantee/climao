@@ -69,15 +69,83 @@ header p{
 }
 .busca-container button:disabled{
   cursor: not-allowed;
-  background: #9ca3fa;
+  background: #9ca3af;
 }
 #card-resultado{
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 10px 30px #000;
+  box-shadow: 0 10px 30px #0000009d;
   padding: 32px;
 }
+#cidade-info{
+  text-align: center;
+  margin-bottom: 24px;
+}
+#cidade-nome{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+#cidade-desc{
+  color: #4b5563;
+  text-transform: capitalize;
+  font-size: 1.2em;
+}
+#temperatura-box{
+  text-align: center;
+  margin-bottom: 32px;
+}
+#temperatura-valor{
+  font-size: 3.7em;
+  font-weight: bold;
+  color: #2563eb;
+  margin-bottom: 8px;
+}
+#sensacao{
+  color: #4b5563;
+}
+.detalhes-box{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+}
+.detalhes-item{
+  background: #eceff0;
+box-shadow:  5px 5px 10px #bebebe,
+             -5px -5px 10px #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+.detalhes-item h2{
+  font-size: 0.9em;
+  color: #444;
+  margin-bottom: 4px;
+}
+.detalhes-item h3{
+  color: #222;
+}
 
-
-
-
+/* RESPONSIVO */
+@media (max-width: 768px){
+  .content-wrapper{
+    min-width: 100%;
+  }
+  .busca-container input{
+    width: 80%;
+  }
+  .detalhes-box{
+    grid-template-columns: 1fr;
+  }
+  #temperatura-valor{
+    font-size: 3em;
+  }
+  header h1{
+    font-size: 1.8em;
+  }
+}

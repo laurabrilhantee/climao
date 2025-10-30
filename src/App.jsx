@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import { CloudSunRain, MapPinned } from 'lucide-react';
+import { CloudSunRain, MapPinned, Thermometer, Droplet, Wind } from 'lucide-react';
+
 
 function App() {
   const [cidade, setCidade] = useState('');
@@ -62,12 +63,22 @@ function App() {
               <input 
                 type="text" 
                 placeholder="Digite o nome da cidade.." 
+                value={cidade}
+                onChange={(e) => setCidade(e.target.value)}
+                onKeyPress={handleKeyPress}
               />
-              <button>Buscar</button>
+              <button
+                onClick={buscaClima}
+                disabled={carregando}
+             >
+                {carregando ? "Buscando..." : "Buscar"}
+              </button>
             </div>
+            {erro && <div className="error-message">{erro}</div>}
           </div>
 
-          {/* Resultado do Clima*/}
+          {clima && ( <>
+          {/* Resultado do Clima */}
           <div id="card-resultado">
             <div id="cidade-info">
               <div id="cidade-nome">
@@ -79,9 +90,44 @@ function App() {
               </p>
             </div> {/* Fecha #cidade-desc*/}
 
-           </div> {/* Fecha #cidade-desc*/}
-           </div>
-           </div>
+            {/* Temperatura Principal */}
+            <div id="temperatura-box">
+              <div id="temperatura-valor">
+                22ºC
+              </div>
+              <div id="sensacao">
+                Sensação Térmica: 25ºC
+              </div>
+            </div>
+
+            <div className="detalhes-box">
+
+              <div className="detalhes-item">
+                <Thermometer style={{color: '#3fb2ffff'}} size={32} />
+                <h2>Min/Max</h2>
+                <h3>23ºC / 26ºC</h3>
+              </div>
+
+              <div className="detalhes-item">
+                <Droplet style={{color: '#3fb2ffff'}} size={32} />
+                <h2>Umidade</h2>
+                <h3>10%</h3>
+              </div>
+
+              <div className="detalhes-item">
+                <Wind style={{color: '#3fb2ffff'}} size={32} />
+                <h2>Vento</h2>
+                <h3>15 km/h</h3>
+              </div>
+
+            </div>{/* Fecha detalhes-box */}
+          
+
+          </div> {/* Fecha #card-resultado */}
+          </>)}
+
+        </div>
+      </div>
     </>
   )
 }
