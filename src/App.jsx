@@ -13,7 +13,7 @@ function App() {
   const buscaClima = async () => {
     //validação básica
     if(!cidade.trim()){
-      setErro('Por favor, digite uma cidade');
+      setErro('❗ Por favor, digite uma cidade');
       return;
     }
 
@@ -22,11 +22,11 @@ function App() {
 
     try{
       const API_KEY = "50878f4678cd0841144b44b2fca0ccc0";
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid${API_KEY}&units=metric&lang=pt_br`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${API_KEY}&units=metric&lang=pt_br`;
       const resposta = await fetch(url);
 
       if(!resposta.ok){
-        throw new Error('Cidade não encontrada');
+        throw new Error('❗ Cidade não encontrada');
       }
 
       const dados = await resposta.json();
@@ -117,7 +117,7 @@ function App() {
               <div className="detalhes-item">
                 <Wind style={{color: '#3fb2ffff'}} size={32} />
                 <h2>Vento</h2>
-                <h3> {Math.round(clima,window,speed * 3.6)}km/h</h3>
+                <h3>{Math.round(clima.wind.speed * 3.6)} km/h</h3>
               </div>
 
             </div>{/* Fecha detalhes-box */}
